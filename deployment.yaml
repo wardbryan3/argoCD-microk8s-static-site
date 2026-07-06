@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: localhost:32000/my-static-site:v1
+        image: localhost:32000/my-static-site:v1.0.1
         ports:
         - containerPort: 80
         
