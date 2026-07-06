@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My First ArgoCD Site</title>
+	<style>
+		body {
+			font-family: 'Sefoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background: linear-gradient(135def, #667eea 0%, #764bs2 100%);
+			color: white;
+			display: flex;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+			text-align: center;
+		}
+		.container {
+			background: rgba (255,255,255,0.1);
+			backdrop-filter: blur(10px);
+			padding: 3rem 5rem;
+			border-radius: 20px;
+			box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+		}
+		h1 {
+			font-size: 3rem;
+			margin-bottom: 0.5rem;
+		}
+		.deploy-info {
+			font-size: 1.2rem;
+			opacity: 0.9;
+			margin-top: 1rem;
+		}
+		.badge {
+			display: inline-block;
+			background: #00d4ff;
+			color: #1a1a2e;
+			padding: 0.3rem 1rem;
+			border-radius: 20px;
+			font-weight: bold;
+			font-size: 0.9rem;
+			margin-top: 1rem;
+		}
+		.version {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			font-size 0.8rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Hello, GitOps!</h1>
+		<p> This static site was deployed using:</p>
+		<div style="display: flex; gap: 1rem; justify-content: center; margin: 1rem 0;">
+			<span style="background: #326ce5; padding: 0.3rem 1rem; border-radius: 5px;">Kubernetes</span>
+			<span style="background: #ef7b4d; padding: 0.3rem 1rem; border-radius: 5px;">ArgoCD</span>
+			<span style="background: #00d4ff; padding: 0.3rem 1rem; border-radius: 5px;">MicroK8s</span>
+		</div>
+		<div class="deploy-info">
+			<p>Deployed via GitOps pipeline</p>
+			<p style="font-size: 0.9rem; opacity: 0.7;">Version 1.0.0</p>
+		</div>
+	<div class="badge">Automatic Sync Enabled</div>
+	</div>
+	<div class="version">v1.0.0 - Deployed: <span id="deploy-time"></span></div>
+	<script>
+		document.getElementById('deploy-time').textContent = new Date().toLocaleString();
+	</script>
+</body>
+</html>
+
+

@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: static-site
+  labels:
+    app: static-site
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: static-site
+    template:
+      metadata:
+        labels:
+          app: static-site
+      spec:
+        containers:
+        - name: nginx
+          image: nginx:alpine
+          ports:
+          - containerPort: 80
+          volumeMounts:
+          - name: html
+            mountPath: /usr/share/nginx/html
+        volumes:
+        - name:html
+          configMap:
+            name: static-site-content
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: static-site-service
+spec:
+  selector:
+    app: static-site
+  ports:
+  - port: 80
+    targetPort: 80
+  type: ClusterIP
